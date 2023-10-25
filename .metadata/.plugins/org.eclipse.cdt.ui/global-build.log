@@ -1,0 +1,22 @@
+15:03:08 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  20792	    124	  20436	  41352	   a188	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+15:03:14 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20792	    124	  20436	  41352	   a188	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 

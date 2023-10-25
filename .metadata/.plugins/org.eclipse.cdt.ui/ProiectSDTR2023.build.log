@@ -1,0 +1,10 @@
+15:03:14 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20792	    124	  20436	  41352	   a188	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+
+15:03:15 Build Finished. 0 errors, 0 warnings. (took 824ms)
+
