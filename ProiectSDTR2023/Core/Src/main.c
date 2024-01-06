@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "string.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -52,17 +53,18 @@ osThreadId_t Task1Handle;
 const osThreadAttr_t Task1_attributes = {
   .name = "Task1",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityHigh,
 };
 /* Definitions for Task2 */
 osThreadId_t Task2Handle;
 const osThreadAttr_t Task2_attributes = {
   .name = "Task2",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-
+osSemaphoreId_t distanceSemaphoreHandle;
+osMessageQueueId_t distanceQueueHandle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,7 +98,8 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -114,6 +117,8 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   MX_TIM1_Init();
+  HAL_TIM_Base_Start(&htim1);
+
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -126,7 +131,7 @@ int main(void)
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
+  distanceSemaphoreHandle = osSemaphoreNew(1, 0, NULL);
   /* USER CODE END RTOS_SEMAPHORES */
 
   /* USER CODE BEGIN RTOS_TIMERS */
@@ -134,7 +139,7 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
+  distanceQueueHandle = osMessageQueueNew(1, sizeof(uint32_t), NULL);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -153,6 +158,7 @@ int main(void)
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
+
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
@@ -312,7 +318,7 @@ static void MX_USART2_UART_Init(void)
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.Mode = UART_MODE_TX;
   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
   if (HAL_UART_Init(&huart2) != HAL_OK)
@@ -350,7 +356,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -358,7 +364,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+volatile uint32_t calculatedDistance = 0;
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartTask1 */
@@ -370,15 +376,40 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_StartTask1 */
 void StartTask1(void *argument)
 {
-  /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for(;;)
+	uint32_t timer;
+	uint32_t distanceTimer = 0;
+  for (;;)
   {
-	printf("Task-1 \n");
-    osDelay(1000);
+	   //Trimite un puls pe pinul de Trigger: PA4
+	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+	   osDelay(1); // Wait for 1ms
+	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+	   // Asteapta ca Echo sa fie activ: PA7
+	   timer = HAL_GetTick();
+	   while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_RESET && (HAL_GetTick() - timer) < 10);
+
+	   // Masoara timpul cat echo este high cu ajutorul TIM1
+	   __HAL_TIM_SET_COUNTER(&htim1, 0);
+	   timer = HAL_GetTick();
+	   while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_SET && (HAL_GetTick() - timer) < 50);
+	   distanceTimer = __HAL_TIM_GET_COUNTER(&htim1);
+	   timer = 0;
+	   // calcularea distantei folosind urmatoarea formula: timpul cat semnalul de echo este high inmultit cu jumatate din viteza sunetului
+	   calculatedDistance = (distanceTimer * 0.034) / 2;
+
+	   //Trimite distanta masurata catre task-ul 2 cu ajutorul unei cozi
+	   uint32_t tempDistance = calculatedDistance;
+	   osMessageQueuePut(distanceQueueHandle, &tempDistance, 0, 0);
+	   osSemaphoreRelease(distanceSemaphoreHandle);
+
+	   osDelay(500);
   }
-  /* USER CODE END 5 */
+  //osThreadExit();
 }
+  /* USER CODE END 5 */
+
 
 /* USER CODE BEGIN Header_StartTask2 */
 /**
@@ -391,13 +422,33 @@ void StartTask2(void *argument)
 {
   /* USER CODE BEGIN StartTask2 */
   /* Infinite loop */
-  for(;;)
-  {
-	printf("Task-2 \n");
-    osDelay(1000);
+	uint32_t receivedDistance;
+	char uartData[50];
+
+	for(;;)
+	{
+	  //  Asteapta taskul anterior sa fie gata si elibereaza semaforul
+	  osSemaphoreAcquire(distanceSemaphoreHandle, osWaitForever);
+
+	  // Primeste disntanta de la coada
+	  if (osMessageQueueGet(distanceQueueHandle, &receivedDistance, NULL, osWaitForever) == osOK)
+	  {
+	    //Scrie informatia de transmis in uartData si transmite prin UART: UART2 cu pinii PA2 si PA3
+	    sprintf(uartData, "Distanta calculata este: %lu cm\r\n", receivedDistance);
+	    HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), 100);
+	  }
+	  else
+	  {
+	    // Handle error when receiving data from the queue
+	    Error_Handler();
+	  }
+
+	  osDelay(1500); // Adjust as needed
+	}
+
   }
+  //osThreadExit();
   /* USER CODE END StartTask2 */
-}
 
 /**
   * @brief  Period elapsed callback in non blocking mode

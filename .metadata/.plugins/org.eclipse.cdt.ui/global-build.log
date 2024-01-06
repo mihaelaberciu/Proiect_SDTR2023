@@ -1,22 +1,2161 @@
-15:03:08 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+00:48:41 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+00:50:06 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+00:58:10 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+00:58:25 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+01:02:52 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:397:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  397 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:435:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  435 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:435:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
 arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: ProiectSDTR2023.elf
  
 arm-none-eabi-size   ProiectSDTR2023.elf 
 arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
    text	   data	    bss	    dec	    hex	filename
-  20792	    124	  20436	  41352	   a188	ProiectSDTR2023.elf
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
 Finished building: default.size.stdout
  
 Finished building: ProiectSDTR2023.list
  
-15:03:14 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+01:03:09 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:397:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  397 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:435:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  435 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:435:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:28:57 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
 make -j4 all 
 arm-none-eabi-size   ProiectSDTR2023.elf 
    text	   data	    bss	    dec	    hex	filename
-  20792	    124	  20436	  41352	   a188	ProiectSDTR2023.elf
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
 Finished building: default.size.stdout
+ 
+01:29:15 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:397:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  397 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:435:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  435 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:435:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  32132	    124	  20868	  53124	   cf84	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:33:01 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29740	    124	  20868	  50732	   c62c	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:35:31 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:57: warning: incompatible implicit declaration of built-in function 'strlen'
+  442 |     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                         ^~~~~~
+../Core/Src/main.c:442:57: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:442:89: error: expected ')' before ';' token
+  442 |     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |        ~                                                                                ^
+      |                                                                                         )
+../Core/Src/main.c:443:4: error: expected expression before '}' token
+  443 |    }
+      |    ^
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+01:35:37 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:57: warning: incompatible implicit declaration of built-in function 'strlen'
+  442 |     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                         ^~~~~~
+../Core/Src/main.c:442:57: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:442:89: error: expected ')' before ';' token
+  442 |     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |        ~                                                                                ^
+      |                                                                                         )
+../Core/Src/main.c:443:4: error: expected expression before '}' token
+  443 |    }
+      |    ^
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+01:35:59 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:57: warning: incompatible implicit declaration of built-in function 'strlen'
+  442 |     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                         ^~~~~~
+../Core/Src/main.c:442:57: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29756	    124	  20868	  50748	   c63c	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:36:32 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  442 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:442:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29756	    124	  20868	  50748	   c63c	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:40:39 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:430:24: warning: passing argument 2 of 'sprintf' makes pointer from integer without a cast [-Wint-conversion]
+  430 |      sprintf(uartData, sizeof(uartData), "Distance: %lu cm\r\n", receivedDistance);
+      |                        ^~~~~~~~~~~~~~~~
+      |                        |
+      |                        unsigned int
+In file included from ../Core/Src/main.c:25:
+c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\stdio.h:244:32: note: expected 'const char * restrict' but argument is of type 'unsigned int'
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |                                ^
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  442 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:442:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29716	    124	  20868	  50708	   c614	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:45:31 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:433:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  442 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:442:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29716	    124	  20868	  50708	   c614	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:48:04 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:431:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  431 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:431:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:443:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  443 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:443:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29748	    124	  20868	  50740	   c634	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:52:23 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:434:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  434 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:434:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:443:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  443 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:443:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29732	    124	  20868	  50724	   c624	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:52:29 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29732	    124	  20868	  50724	   c624	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+01:56:50 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:431:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  431 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:431:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:443:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  443 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:443:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29748	    124	  20868	  50740	   c634	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+01:57:23 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29748	    124	  20868	  50740	   c634	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+02:03:18 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:431:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  431 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:431:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:443:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  443 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:443:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29748	    124	  20868	  50740	   c634	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+02:06:13 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:431:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  431 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:431:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:443:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  443 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:443:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29748	    124	  20868	  50740	   c634	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+02:21:49 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:432:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  432 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:432:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:444:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  444 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:444:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+02:22:07 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+02:22:29 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+02:22:52 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+02:26:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+02:50:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:432:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  432 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:432:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:444:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  444 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:444:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+02:52:32 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:396:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  396 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:432:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  432 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:432:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:444:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  444 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:444:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+02:52:58 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:07:17 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:397:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  397 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:433:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  433 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:433:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:445:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  445 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:445:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29764	    124	  20868	  50756	   c644	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:09:58 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:398:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  398 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:377:11: warning: unused variable 'endTime' [-Wunused-variable]
+  377 |  uint32_t endTime = 0;
+      |           ^~~~~~~
+../Core/Src/main.c:376:11: warning: unused variable 'startTime' [-Wunused-variable]
+  376 |  uint32_t startTime = 0;
+      |           ^~~~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:434:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  434 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:434:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:446:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  446 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:446:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29780	    124	  20868	  50772	   c654	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:10:19 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29780	    124	  20868	  50772	   c654	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:11:53 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:399:46: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  399 |       osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:377:11: warning: unused variable 'endTime' [-Wunused-variable]
+  377 |  uint32_t endTime = 0;
+      |           ^~~~~~~
+../Core/Src/main.c:376:11: warning: unused variable 'startTime' [-Wunused-variable]
+  376 |  uint32_t startTime = 0;
+      |           ^~~~~~~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:435:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  435 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:435:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:447:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  447 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:447:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  29780	    124	  20868	  50772	   c654	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:13:52 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:405:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  405 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:441:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  441 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:441:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:444:1: warning: statement with no effect [-Wunused-value]
+  444 | 6     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      | ^
+../Core/Src/main.c:444:2: error: expected ';' before 'if'
+  444 | 6     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |  ^    ~~
+      |  ;
+../Core/Src/main.c:453:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:453:54: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+03:14:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:403:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  403 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  439 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:439:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:1: warning: statement with no effect [-Wunused-value]
+  442 | 6     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      | ^
+../Core/Src/main.c:442:2: error: expected ';' before 'if'
+  442 | 6     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |  ^    ~~
+      |  ;
+../Core/Src/main.c:451:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  451 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:451:54: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+03:15:00 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:403:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  403 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  439 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:439:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:442:1: warning: statement with no effect [-Wunused-value]
+  442 | 6     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK);
+      | ^
+../Core/Src/main.c:442:2: error: expected ';' before 'if'
+  442 | 6     if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK);
+      |  ^    ~~
+      |  ;
+../Core/Src/main.c:451:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  451 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:451:54: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+03:15:22 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:403:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  403 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  439 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:439:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:451:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  451 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:451:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:15:43 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:17:53 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:403:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  403 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  439 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:439:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:451:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  451 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:451:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:19:18 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:20:13 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:20:42 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:28:03 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:403:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  403 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  439 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:439:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:451:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  451 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:451:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:32:31 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:403:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  403 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  439 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:439:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:451:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  451 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:451:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31780	    124	  20868	  52772	   ce24	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:35:05 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31796	    124	  20868	  52788	   ce34	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:36:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31796	    124	  20868	  52788	   ce34	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:37:31 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31796	    124	  20868	  52788	   ce34	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+03:39:41 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:378:11: warning: unused variable 'val2' [-Wunused-variable]
+  378 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31796	    124	  20868	  52788	   ce34	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:42:09 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:405:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  405 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:441:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  441 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:441:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:453:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31988	    124	  20868	  52980	   cef4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+03:46:13 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:15:10 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:15:35 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+04:19:50 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:34: error: 'ascii' undeclared (first use in this function)
+  440 |      HAL_UART_Transmit(&huart2, (ascii)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                  ^~~~~
+../Core/Src/main.c:440:34: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:440:40: error: expected ')' before 'uartData'
+  440 |      HAL_UART_Transmit(&huart2, (ascii)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                        ^~~~~~~~
+      |                                        )
+../Core/Src/main.c:440:6: error: too few arguments to function 'HAL_UART_Transmit'
+  440 |      HAL_UART_Transmit(&huart2, (ascii)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |      ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:19: note: declared here
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:443:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  443 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                          ^~~~~~
+../Core/Src/main.c:443:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+04:20:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:22:46 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                 ^
+../Core/Src/main.c:440:49: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                 ^~~~~~
+../Core/Src/main.c:440:49: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:440:33: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                 ^~~~~~~~~~~~~~
+      |                                 |
+      |                                 char
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:26:43 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                 ^
+../Core/Src/main.c:440:33: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                 ^~~~~~~~~~~~~~
+      |                                 |
+      |                                 char
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:28:09 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                 ^
+../Core/Src/main.c:440:33: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  440 |      HAL_UART_Transmit(&huart2, (char)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                 ^~~~~~~~~~~~~~
+      |                                 |
+      |                                 char
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:31:22 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:439:14: warning: passing argument 1 of 'sprintf' from incompatible pointer type [-Wincompatible-pointer-types]
+  439 |      sprintf(uartData, "Distance: %lu cm\r\n", receivedDistance);
+      |              ^~~~~~~~
+      |              |
+      |              uint8_t ** {aka unsigned char **}
+In file included from ../Core/Src/main.c:25:
+c:\st\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t **' {aka 'unsigned char **'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:440:61: warning: passing argument 1 of 'strlen' from incompatible pointer type [-Wincompatible-pointer-types]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                             ^~~~~~~~
+      |                                                             |
+      |                                                             uint8_t ** {aka unsigned char **}
+../Core/Src/main.c:440:61: note: expected 'const char *' but argument is of type 'uint8_t **' {aka 'unsigned char **'}
+../Core/Src/main.c:443:65: warning: passing argument 1 of 'strlen' from incompatible pointer type [-Wincompatible-pointer-types]
+  443 |      if (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY) != HAL_OK)
+      |                                                                 ^~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t ** {aka unsigned char **}
+../Core/Src/main.c:443:65: note: expected 'const char *' but argument is of type 'uint8_t **' {aka 'unsigned char **'}
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:452:61: warning: passing argument 1 of 'strlen' from incompatible pointer type [-Wincompatible-pointer-types]
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                             ^~~~~~~~
+      |                                                             |
+      |                                                             uint8_t ** {aka unsigned char **}
+../Core/Src/main.c:452:61: note: expected 'const char *' but argument is of type 'uint8_t **' {aka 'unsigned char **'}
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:36:26 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:452:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  452 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:452:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:38:59 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:453:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:41:37 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:453:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+04:44:16 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), 20);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:54: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                      ^~~~~~
+../Core/Src/main.c:453:54: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+05:00:25 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY);
+      |                                                      ^~~~~~
+../Core/Src/main.c:440:54: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:58: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |                                                          ^~~~~~
+../Core/Src/main.c:453:58: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:453:6: error: too many arguments to function 'HAL_UART_Transmit_DMA'
+  453 |     (HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData), HAL_MAX_DELAY));
+      |      ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:726:19: note: declared here
+  726 | HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                   ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+05:01:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData));
+      |                                                          ^~~~~~
+../Core/Src/main.c:440:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:58: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData)));
+      |                                                          ^~~~~~
+../Core/Src/main.c:453:58: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  33156	    124	  20868	  54148	   d384	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+05:02:53 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData));
+      |                                                          ^~~~~~
+../Core/Src/main.c:440:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:58: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     (HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData)));
+      |                                                          ^~~~~~
+../Core/Src/main.c:453:58: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  32644	    124	  20868	  53636	   d184	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+05:13:36 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:404:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  404 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:379:11: warning: unused variable 'val2' [-Wunused-variable]
+  379 |  uint32_t val2 = 0;
+      |           ^~~~
+../Core/Src/main.c: In function 'StartTask2':
+../Core/Src/main.c:440:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  440 |      HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData));
+      |                                                          ^~~~~~
+../Core/Src/main.c:440:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include <stdio.h>
+  +++ |+#include <string.h>
+   26 | 
+../Core/Src/main.c:453:57: warning: incompatible implicit declaration of built-in function 'strlen'
+  453 |     HAL_UART_Transmit_DMA(&huart2, (uint8_t *)uartData, strlen(uartData));
+      |                                                         ^~~~~~
+../Core/Src/main.c:453:57: note: include '<string.h>' or provide a declaration of 'strlen'
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  32644	    124	  20868	  53636	   d184	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+16:35:09 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:406:44: warning: passing argument 2 of 'osMessageQueuePut' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  406 |     osMessageQueuePut(distanceQueueHandle, &ultrasonicDistance, 0, 0);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:155,
+                 from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:689:69: note: expected 'const void *' but argument is of type 'volatile uint32_t *' {aka 'volatile long unsigned int *'}
+  689 | osStatus_t osMessageQueuePut (osMessageQueueId_t mq_id, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout);
+      |                                                         ~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.c:381:11: warning: unused variable 'val2' [-Wunused-variable]
+  381 |  uint32_t val2 = 0;
+      |           ^~~~
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	    124	  20868	  52964	   cee4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+16:57:13 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:462:1: error: expected identifier or '(' before '}' token
+  462 | }
+      | ^
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+16:57:55 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31956	    124	  20868	  52948	   ced4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+17:16:21 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31956	    124	  20868	  52948	   ced4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+17:17:36 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31956	    124	  20868	  52948	   ced4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+17:19:03 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31956	    124	  20868	  52948	   ced4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+17:21:48 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31956	    124	  20868	  52948	   ced4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+17:29:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartTask1':
+../Core/Src/main.c:411:1: warning: statement with no effect [-Wunused-value]
+  411 | 6    osDelay(500); // Adjust as needed
+      | ^
+../Core/Src/main.c:411:2: error: expected ';' before 'osDelay'
+  411 | 6    osDelay(500); // Adjust as needed
+      |  ^   ~~~~~~~
+      |  ;
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+17:30:16 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31924	    124	  20868	  52916	   ceb4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+17:39:51 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31924	    124	  20868	  52916	   ceb4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+17:40:24 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31924	    124	  20868	  52916	   ceb4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+18:06:31 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31924	    124	  20868	  52916	   ceb4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+18:58:03 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31924	    124	  20868	  52916	   ceb4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
+ 
+18:59:09 **** Incremental Build of configuration Debug for project ProiectSDTR2023 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProiectSDTR2023.elf
+ 
+arm-none-eabi-size   ProiectSDTR2023.elf 
+arm-none-eabi-objdump -h -S  ProiectSDTR2023.elf  > "ProiectSDTR2023.list"
+   text	   data	    bss	    dec	    hex	filename
+  31940	    124	  20868	  52932	   cec4	ProiectSDTR2023.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProiectSDTR2023.list
  
