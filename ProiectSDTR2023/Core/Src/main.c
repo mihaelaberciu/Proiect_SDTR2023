@@ -381,30 +381,30 @@ void StartTask1(void *argument)
 	uint32_t distanceTimer = 0;
   for (;;)
   {
-	   //Trimite un puls pe pinul de Trigger: PA4
-	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-	   osDelay(1); // Wait for 1ms
-	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+	  //Trimite un puls pe pinul de Trigger: PA4
+	 	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+	 	   osDelay(1); // Wait for 1ms
+	 	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
 
-	   // Asteapta ca Echo sa fie activ: PA7
-	   timer = HAL_GetTick();
-	   while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_RESET && (HAL_GetTick() - timer) < 10);
+	 	   // Asteapta ca Echo sa fie activ: PA7
+	 	   timer = HAL_GetTick();
+	 	   while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_RESET && (HAL_GetTick() - timer) < 10);
 
-	   // Masoara timpul cat echo este high cu ajutorul TIM1
-	   __HAL_TIM_SET_COUNTER(&htim1, 0);
-	   timer = HAL_GetTick();
-	   while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_SET && (HAL_GetTick() - timer) < 50);
-	   distanceTimer = __HAL_TIM_GET_COUNTER(&htim1);
-	   timer = 0;
-	   // calcularea distantei folosind urmatoarea formula: timpul cat semnalul de echo este high inmultit cu jumatate din viteza sunetului
-	   calculatedDistance = (distanceTimer * 0.034) / 2;
+	 	   // Masoara timpul cat echo este high cu ajutorul TIM1
+	 	   __HAL_TIM_SET_COUNTER(&htim1, 0);
+	 	   timer = HAL_GetTick();
+	 	   while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_SET && (HAL_GetTick() - timer) < 50);
+	 	   distanceTimer = __HAL_TIM_GET_COUNTER(&htim1);
+	 	   timer = 0;
+	 	   // calcularea distantei folosind urmatoarea formula: timpul cat semnalul de echo este high inmultit cu jumatate din viteza sunetului
+	 	   calculatedDistance = (distanceTimer * 0.0343) ;
 
-	   //Trimite distanta masurata catre task-ul 2 cu ajutorul unei cozi
-	   uint32_t tempDistance = calculatedDistance;
-	   osMessageQueuePut(distanceQueueHandle, &tempDistance, 0, 0);
-	   osSemaphoreRelease(distanceSemaphoreHandle);
+	 	   //Trimite distanta masurata catre task-ul 2 cu ajutorul unei cozi
+	 	   uint32_t tempDistance = calculatedDistance;
+	 	   osMessageQueuePut(distanceQueueHandle, &tempDistance, 0, 0);
+	 	   osSemaphoreRelease(distanceSemaphoreHandle);
 
-	   osDelay(500);
+	 	   osDelay(500);
   }
   //osThreadExit();
 }
@@ -434,7 +434,7 @@ void StartTask2(void *argument)
 	  if (osMessageQueueGet(distanceQueueHandle, &receivedDistance, NULL, osWaitForever) == osOK)
 	  {
 	    //Scrie informatia de transmis in uartData si transmite prin UART: UART2 cu pinii PA2 si PA3
-	    sprintf(uartData, "Distanta calculata este: %lu cm\r\n", receivedDistance);
+	    sprintf(uartData, "Distanta calculata aproximativa este: %lu cm\r\n", receivedDistance);
 	    HAL_UART_Transmit(&huart2, (uint8_t *)uartData, strlen(uartData), 100);
 	  }
 	  else
@@ -443,7 +443,7 @@ void StartTask2(void *argument)
 	    Error_Handler();
 	  }
 
-	  osDelay(1500); // Adjust as needed
+	  osDelay(1000); // Adjust as needed
 	}
 
   }

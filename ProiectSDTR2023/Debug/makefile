@@ -65,7 +65,7 @@ main-build: ProiectSDTR2023.elf secondary-outputs
 
 # Tool invocations
 ProiectSDTR2023.elf ProiectSDTR2023.map: $(OBJS) $(USER_OBJS) C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "ProiectSDTR2023.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Mikey\Documents\Proiect_SDTR2023\ProiectSDTR2023\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProiectSDTR2023.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
